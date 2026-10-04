@@ -1,5 +1,7 @@
 package ru.yandex.practicum.contacts.presentation.main;
 
+import ru.yandex.practicum.contacts.presentation.base.BaseListDiffCallback;
+
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
@@ -26,9 +28,9 @@ import ru.yandex.practicum.contacts.databinding.ItemContactBinding;
 
 public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHolder> {
 
-    private final private final AsyncListDiffer<ContactUi> differ = new AsyncListDiffer<>(
+    private final AsyncListDiffer<ContactUi> differ = new AsyncListDiffer<>(
             new AdapterListUpdateCallback(this),
-            new AsyncDifferConfig.Builder<>(new ListDiffCallback<ContactUi>()).build()
+            new AsyncDifferConfig.Builder<>(new BaseListDiffCallback<ContactUi>()).build()
     );
 
     @NonNull
@@ -92,4 +94,4 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
                     .into(binding.contactPhoto);
         }
     }
-
+}

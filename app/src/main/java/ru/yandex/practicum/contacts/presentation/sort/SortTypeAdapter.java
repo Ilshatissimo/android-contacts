@@ -1,4 +1,5 @@
 package ru.yandex.practicum.contacts.presentation.sort;
+import ru.yandex.practicum.contacts.presentation.base.BaseListDiffCallback;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,7 +24,7 @@ public class SortTypeAdapter extends RecyclerView.Adapter<SortTypeAdapter.ViewHo
 
     private final AsyncListDiffer<SortTypeUI> differ = new AsyncListDiffer<>(
             new AdapterListUpdateCallback(this),
-            new AsyncDifferConfig.Builder<>(new ListDiffCallback<SortTypeUI>()).build()
+            new AsyncDifferConfig.Builder<>(new BaseListDiffCallback<SortTypeUI>()).build()
     );
 
 

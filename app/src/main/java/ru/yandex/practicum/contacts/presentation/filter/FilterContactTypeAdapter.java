@@ -1,5 +1,7 @@
 package ru.yandex.practicum.contacts.presentation.filter;
 
+import ru.yandex.practicum.contacts.presentation.base.BaseListDiffCallback;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,7 +28,7 @@ public class FilterContactTypeAdapter extends RecyclerView.Adapter<FilterContact
 
     private final AsyncListDiffer<FilterContactTypeUi> differ = new AsyncListDiffer<>(
             new AdapterListUpdateCallback(this),
-            new AsyncDifferConfig.Builder<>(new ListDiffCallback<FilterContactTypeUi>()).build()
+            new AsyncDifferConfig.Builder<>(new BaseListDiffCallback<FilterContactTypeUi>()).build()
     );
 
 
@@ -86,5 +88,4 @@ public class FilterContactTypeAdapter extends RecyclerView.Adapter<FilterContact
             }
         }
     }
-
-
+} // Теперь класс корректно закрывается здесь
